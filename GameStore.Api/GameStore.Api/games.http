@@ -1,0 +1,29 @@
+GET http://localhost:5084/games
+
+###
+GET http://localhost:5084/games/1
+
+###
+POST http://localhost:5084/games
+Content-Type: application/json
+
+{
+    "name": "Fantastic",
+    "genreId": "Kids and Family",
+    "price": 59.99,
+    "releaseDate": "2011-09-30"
+}
+
+###
+PUT http://localhost:5084/games/3
+Content-Type: application/json
+
+{
+    "name": "Street Fighter II Turbo",
+    "genreId": 1,
+    "price": 19.99,
+    "releaseDate": "1991-02-01"
+}
+
+###
+DELETE http://localhost:5084/8
