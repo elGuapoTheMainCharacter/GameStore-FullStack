@@ -1,0 +1,120 @@
+.addGameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.form-card {
+    background: #1e293b; /* Matches your main table background */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.form-title {
+    margin: 0 0 24px 0;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+.addGameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.input-group input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 12px;
+    color: white;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.formBtns {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.saveBtn {
+    flex: 2;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.saveBtn:hover {
+    background-color: #2563eb;
+}
+
+.cancelBtn {
+    flex: 1;
+    background-color: transparent;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+    background-color: #334155;
+    color: white;
+}
+/* Add this to your CSS file */
+.genre-select {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 12px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none; /* Removes default browser styling */
+}
+
+.genre-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
