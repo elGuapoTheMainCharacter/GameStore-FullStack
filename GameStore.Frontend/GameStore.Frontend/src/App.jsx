@@ -7,7 +7,7 @@ function App() {
   const [games, setGames] = useState([]); 
   const [gameToEdit, setGameToEdit] = useState(null); 
 
-  const API_URL = 'http://localhost:5084/games';
+  const API_URL = 'https://gamestore-fullstack-3.onrender.com/';
 
   const fetchGames = () => {
     fetch(API_URL)
