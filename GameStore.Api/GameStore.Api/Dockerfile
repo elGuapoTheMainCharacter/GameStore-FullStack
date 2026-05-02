@@ -2,7 +2,7 @@
 FROM ://microsoft.com AS build-env
 WORKDIR /App
 
-# Copy everything from your innermost GameStore.Api folder into the container
+# Copy everything from the current folder into the container
 COPY . ./
 
 # Restore dependencies and publish the application
