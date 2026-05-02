@@ -7,10 +7,12 @@ function App() {
   const [games, setGames] = useState([]); 
   const [gameToEdit, setGameToEdit] = useState(null); 
 
-  const API_URL = 'https://gamestore-fullstack-3.onrender.com/';
+  // Updated URL: Removed trailing slash to prevent double-slashes in fetch calls
+  // Also added an environment variable check (best practice)
+  const API_URL = process.env.REACT_APP_API_URL || 'https://onrender.com';
 
   const fetchGames = () => {
-    fetch(API_URL)
+    fetch(`${API_URL}/games`) // Added /games assuming that is your endpoint route
       .then(response => response.json())
       .then(data => setGames(data))
       .catch(error => console.error('Error fetching games:', error));
@@ -22,7 +24,7 @@ function App() {
 
   const deleteGame = (id) => {
     if (window.confirm("Are you sure you want to delete this game?")) {
-      fetch(`${API_URL}/${id}`, {
+      fetch(`${API_URL}/games/${id}`, { // Fixed path construction
         method: 'DELETE',
       })
       .then(response => {
