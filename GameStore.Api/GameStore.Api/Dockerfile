@@ -1,18 +1,18 @@
+# Use the official .NET 10 SDK image to build the app
 FROM ://microsoft.com AS build-env
 WORKDIR /App
 
-# 1. Copy everything from the current directory
+# Copy everything from your innermost GameStore.Api folder into the container
 COPY . ./
 
-# 2. Restore and Build
+# Restore dependencies and publish the application
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
-# 3. Use the runtime image
+# Use the official .NET 10 ASP.NET runtime image to run the app
 FROM ://microsoft.com
 WORKDIR /App
 COPY --from=build-env /App/out .
 
-# 4. This command tells Docker to run the DLL that matches your project name
-# (Replace 'GameStore.Api.dll' ONLY if your .csproj has a different name)
+# This must match your GameStore.Api.csproj filename exactly
 ENTRYPOINT ["dotnet", "GameStore.Api.dll"]
