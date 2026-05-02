@@ -1,17 +1,16 @@
+# Use the SDK image to build the app
 FROM ://microsoft.com AS build-env
 WORKDIR /App
 
-# Copy everything from the inner GameStore.Api folder
+# Copy all files from the current folder (where your .csproj is)
 COPY . ./
-
-# Restore and Publish
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
+# Use the runtime image to run the app
 FROM ://microsoft.com
 WORKDIR /App
 COPY --from=build-env /App/out .
 
-# This must match your .csproj filename exactly
+# IMPORTANT: Ensure 'GameStore.Api.dll' matches your .csproj filename exactly
 ENTRYPOINT ["dotnet", "GameStore.Api.dll"]
