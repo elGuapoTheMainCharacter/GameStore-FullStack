@@ -9,8 +9,7 @@ function App() {
 
   // Updated URL: Removed trailing slash to prevent double-slashes in fetch calls
   // Also added an environment variable check (best practice)
-  const API_URL = process.env.REACT_APP_API_URL || 'https://onrender.com';
-
+  const API_URL = 'https://gamestore-fullstack-3.onrender.com';
   const fetchGames = () => {
     fetch(`${API_URL}/games`) // Added /games assuming that is your endpoint route
       .then(response => response.json())
