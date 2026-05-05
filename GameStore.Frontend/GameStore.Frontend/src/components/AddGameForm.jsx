@@ -8,7 +8,7 @@ function AddGameForm({ closeForm, gameToEdit }) {
     const [releaseDate, setReleaseDate] = useState("");
     const [genres, setGenres] = useState([]); // To hold the list from the API
 
-    const API_URL = 'http://localhost:5084';
+    const API_URL = 'https://gamestore-fullstack-3.onrender.com/';
 
     // 1. Fetch available genres when the form loads
     useEffect(() => {
