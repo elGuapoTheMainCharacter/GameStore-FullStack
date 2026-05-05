@@ -20,8 +20,9 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddSqlite<GameStoreContext>(
-    builder.Configuration.GetConnectionString("GameStore"));
+var connString = builder.Configuration.GetConnectionString("GameStore");
+builder.Services.AddNpgsql<GameStoreContext>(connString);
+
 
 var app = builder.Build();
 
