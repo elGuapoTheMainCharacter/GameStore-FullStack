@@ -72,7 +72,7 @@ function App() {
               {games.map(game => (
                 <tr key={game.id}>
                   <td className="game-name">{game.name}</td>
-                  <td><span className="genre-badge">{game.genre || game.genreId}</span></td> 
+                  <td><span className="genre-badge">{game.genre}</span></td> 
                   <td className="price-tag">${game.price}</td>
                   <td>{game.releaseDate}</td>
                   <td>
