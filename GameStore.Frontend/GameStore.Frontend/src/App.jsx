@@ -6,17 +6,17 @@ function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [games, setGames] = useState([]); 
   const [gameToEdit, setGameToEdit] = useState(null); 
-  const [isLoading, setIsLoading] = useState(true); // New loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   const API_URL = 'https://gamestore-fullstack-3.onrender.com';
 
   const fetchGames = () => {
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     fetch(`${API_URL}/games`)
       .then(response => response.json())
       .then(data => {
         setGames(data);
-        setIsLoading(false); // Stop loading
+        setIsLoading(false);
       })
       .catch(error => {
         console.error('Error fetching games:', error);
@@ -28,7 +28,29 @@ function App() {
     fetchGames();
   }, []);   
 
-  // ... (deleteGame, handleAddClick, handleEditClick stay the same)
+  const deleteGame = (id) => {
+    if (window.confirm("Are you sure you want to delete this game?")) {
+      fetch(`${API_URL}/games/${id}`, {
+        method: 'DELETE',
+      })
+      .then(response => {
+        if (response.ok) {
+          setGames(games.filter(game => game.id !== id));
+        }
+      })
+      .catch(error => console.error('Error deleting game:', error));
+    }
+  };
+
+  const handleAddClick = () => {
+    setGameToEdit(null);
+    setIsFormVisible(true);
+  };
+
+  const handleEditClick = (game) => {
+    setGameToEdit(game);
+    setIsFormVisible(true);
+  };
 
   return (
     <div className="container">
@@ -44,7 +66,6 @@ function App() {
       {!isFormVisible && (
         <div className="table-container">
           {isLoading ? (
-            /* PROFESSIONAL LOADING MESSAGE FOR RECRUITERS */
             <div className="loading-state">
               <div className="spinner"></div>
               <p>Waking up the server...</p>
